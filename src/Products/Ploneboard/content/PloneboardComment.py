@@ -10,7 +10,7 @@ from Products.Archetypes.public import BooleanField
 from Products.Archetypes.public import ReferenceField
 from Products.Archetypes.public import ReferenceWidget
 from Products.Archetypes.public import registerType
-from Products.Archetypes.public import RichWidget
+from Products.Archetypes.public import TextWidget
 from Products.Archetypes.public import Schema
 from Products.Archetypes.public import TextField
 from Products.Archetypes.utils import shasattr
@@ -41,13 +41,13 @@ PBCommentBaseBTreeFolderSchema['title'].write_permission = EditComment
 schema = PBCommentBaseBTreeFolderSchema + Schema((
     TextField('text',
               searchable=1,
-              default_content_type='text/plain',
-              default_output_type='text/plain',
-              allowable_content_types=('text/plain'),
+              default_content_type='text/markdown',
+              default_output_type='text/x-html-safe',
+              allowable_content_types=('text/markdown'),
               accessor='getText',
               read_permission=ViewBoard,
               write_permission=EditComment,
-              widget=RichWidget(description="Enter comment body.",
+              widget=TextWidget(description="Enter comment body.",
                                 description_msgid="help_text",
                                 label="Text",
                                       label_msgid="label_text",

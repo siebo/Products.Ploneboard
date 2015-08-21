@@ -1,6 +1,6 @@
 from Products.ATContentTypes.interface import ITextContent
 from zope.interface import implements
-from Products.PortalTransforms.transforms import markdown
+
 
 class CommentTextContent(object):
     implements(ITextContent)
@@ -9,8 +9,7 @@ class CommentTextContent(object):
         self.context = context
 
     def getText(self, **kwargs):
-        body = self.context.getText()
-        return markdown.convert(body)
+        return self.context.getText()
 
     def setText(self, value, **kwargs):
         self.context.setText(value, **kwargs)
