@@ -41,9 +41,9 @@ PBCommentBaseBTreeFolderSchema['title'].write_permission = EditComment
 schema = PBCommentBaseBTreeFolderSchema + Schema((
     TextField('text',
               searchable=1,
-              default_content_type='text/markdown',
-              default_output_type='text/x-html-safe',
-              allowable_content_types=('text/markdown'),
+              default_content_type='text/x-web-markdown',
+              default_output_type='text/x-html',
+              allowable_content_types=('text/x-web-markdown'),
               accessor='getText',
               read_permission=ViewBoard,
               write_permission=EditComment,
